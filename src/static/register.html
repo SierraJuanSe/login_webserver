@@ -8,7 +8,33 @@
 </head>
 
 <body>
+    <div id="header">
+        <h1>welcome!!</h1>
+    </div>
+    <div id="main">
+        <div id="register_container">
+            <p>Please, fill the form to create your account</p>
+            <form id="register_form" name='registerForm' action="/cgi-bin/sing_up.py"
+                onsubmit="return validateRegister()" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" name="name" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" name="email" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" required>
+                <br>
+                <label for="c_password">Confirm password:</label>
+                <input type="password" name="c_password" required>
+                <br>
+                <input type="submit" value="Sing Up">
+            </form>
+            <p id="alert_register"></p>
+        </div>
+    </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
