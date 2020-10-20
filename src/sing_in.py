@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import cgi
 import mysql.connector
-
+from mysql.connector import errorcode
 
 data = cgi.FieldStorage()
 print('Content-Type: text/html')
@@ -11,28 +11,17 @@ try:
         user='user1', password='pass1234', host='127.0.0.1', database='weblogin')
     cursor = cnx.cursor()
 
-    name = data.getvalue('name')
     email = data.getvalue('email')
     password = data.getvalue('password')
 
-    add_user = ("INSERT INTO users "
-                "(uname, email, pass) "
-                "VALUES (%s, %s, sha1(%s))")
-    data_user = (name, email, password)
+    query = ("SELECT uname, email FROM users where email = %s and pass = sha1(%s)")
 
-    cursor.execute(add_user, data_user)
-    user_no = cursor.lastrowid
-    cnx.commit()
+    cursor.execute(query, (email, password))
+    record = cursor.fetchone()
 
-    print('<h1>Usuario registrado</h1>')
-    if user_no:
-        print('Usuario registrado')
-        query = ("SELECT * FROM users where email = %s and pass = sha1(%s)")
-
-        cursor.execute(query, (email, password))
-        record = cursor.fetchone()
-
-        print(record)
+    if record:
+        print(f'<h1>Bienvenido {record[0]}</h1>')
+        print(f'Email {record[1]}')
 
 except mysql.connector.Error as err:
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:

@@ -20,6 +20,20 @@ const validateRegister = () => {
     alert_p.innerHTMl = 'Account created'
 }
 
+const validateSingIn = () => {
+    let email = document.forms['registerForm']['email'].value
+    let p = document.getElementById('alert')
+    correctEmail = validateEmail(email)
+
+    if (!correctEmail) {
+        p.innerHTML = 'Invalid email'
+        return false
+    }
+
+    alert_p = document.getElementById('alert_register')
+    alert_p.innerHTMl = 'Account created'
+}
+
 const validateEmail = (email) => {
     reg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
     return reg.test(email)

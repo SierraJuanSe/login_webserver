@@ -4,11 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>sing in</title>
 </head>
 
 <body>
+    <div id="header">
+        <h1>welcome!!</h1>
+    </div>
+    <div id="main">
+        <div id="container">
+            <p>Please, fill the form to sing in into your account</p>
+            <form id="singin_form" name='siningForm' action="/cgi-bin/sing_in.py" onsubmit="return validateSingIn()"
+                method="POST">
+                <label for="email">Email:</label>
+                <input type="email" name="email" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" required>
+                <input type="submit" value="Sing In">
+                <p id="alert"></p>
+            </form>
+        </div>
+    </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
