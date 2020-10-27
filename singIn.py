@@ -12,7 +12,7 @@ try:
 
     if user.login_user():
         page = open('./templates/goodSingIn.html', "r")
-        print(page.read())
+        print(page.read().format(name=user.name, email=user.email))
     else:
         page = open('./templates/errorSingIn.html', "r")
         print(page.read())
