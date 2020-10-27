@@ -9,7 +9,7 @@ class Connector:
   """Clase conector"""
   def __init__(self, user='webuser', password='pass1234', host='127.0.0.1', database='weblogin'):
     try:
-      self.cnx = mysql.connector.connect(user=user, password=password, host=host, database='employ')
+      self.cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
     except mysql.connector.Error as err:
       if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
         print("Something is wrong with your user name or password")
