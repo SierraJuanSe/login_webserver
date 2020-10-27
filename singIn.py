@@ -10,7 +10,7 @@ print('')
 try:
     user = User("", data.getvalue('email'), data.getvalue('password'))
 
-    if user.query_user():
+    if user.create_user():
         page = open('./templates/goodSingIn.html', "r", "utf-8")
         print(page.read())
     else:
@@ -20,4 +20,3 @@ try:
 except:
     page = open('./templates/errorSingIn.html', "r", "utf-8")
     print(page.read())
-
