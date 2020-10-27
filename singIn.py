@@ -14,9 +14,9 @@ try:
         page = open('./templates/goodSingIn.html', "r")
         print(page.read())
     else:
-        page = open('./templates/errorSingIn.html', "r"
+        page = open('./templates/errorSingIn.html', "r")
         print(page.read())
 
 except:
-    page = open('./templates/errorSingIn.html', "r"
+    page = open('./templates/errorSingIn.html', "r")
     print(page.read())
