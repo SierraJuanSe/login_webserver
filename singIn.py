@@ -10,7 +10,7 @@ print('')
 try:
     user = User("", data.getvalue('email'), data.getvalue('password'))
 
-    if user.create_user():
+    if user.login_user():
         page = open('./templates/goodSingIn.html', "r")
         print(page.read())
     else:
