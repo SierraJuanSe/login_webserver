@@ -12,22 +12,24 @@
         <h1>welcome!!</h1>
     </div>
     <div id="main">
-        <div id="container">
+        <div id="singin_container">
             <p>Please, fill the form to sing in into your account</p>
-            <form id="singin_form" name='siningForm' action="/cgi-bin/sing_in.py" onsubmit="return validateSingIn()"
+            <form id="singin_form" name='siningForm' action="/cgi-bin/login_webserver/singIn.py" onsubmit="return validateSingIn()"
                 method="POST">
                 <label for="email">Email:</label>
                 <input type="email" name="email" required>
                 <br>
                 <label for="password">Password:</label>
                 <input type="password" name="password" required>
+                <br>
                 <input type="submit" value="Sing In">
                 <p id="alert"></p>
             </form>
+            <a href="./singup.html">Create an account</a>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

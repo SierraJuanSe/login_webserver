@@ -14,7 +14,7 @@
     <div id="main">
         <div id="register_container">
             <p>Please, fill the form to create your account</p>
-            <form id="register_form" name='registerForm' action="/cgi-bin/sing_up.py"
+            <form id="register_form" name='registerForm' action="/cgi-bin/login_webserver/singUp.py"
                 onsubmit="return validateRegister()" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" name="name" required>
@@ -31,6 +31,8 @@
                 <input type="submit" value="Sing Up">
                 <p id="alert"></p>
             </form>
+            <br>
+            <a href="./index.html">Cancel</a>
         </div>
     </div>
 
