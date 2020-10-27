@@ -11,12 +11,12 @@ try:
     user = User(data.getvalue('name'), data.getvalue('email'), data.getvalue('password'))
 
     if user.create_user():
-        page = open('./templates/goodSingUp.html', "r", "utf-8")
+        page = open('./templates/goodSingUp.html', "r")
         print(page.read())
     else:
-        page = open('./templates/errorSingUp.html', "r", "utf-8")
+        page = open('./templates/errorSingUp.html', "r")
         print(page.read())
 
 except:
-    page = open('./templates/errorSingUp.html', "r", "utf-8")
+    page = open('./templates/errorSingUp.html', "r")
     print(page.read())
