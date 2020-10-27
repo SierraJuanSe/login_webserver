@@ -11,11 +11,27 @@ class User:
         self.password = password
 
 
-    def query_user(self):
+    def login_user(self):
         try:
             conn = Connector()
             cursor = conn.get_cursor()
             query = "SELECT email, name FROM users where email = %s and password = sha1(%s)"
+            cursor.execute(query, (self.email, self.password))
+            query_result = cursor.fetchone()
+
+            if query_result:
+                self.name = query_result[1]
+                return True
+        except:
+            return False
+        else:
+            conn.close()
+
+    def  query_user(self):
+        try:
+            conn = Connector()
+            cursor = conn.get_cursor()
+            query = "SELECT email, name FROM users where email = %s"
             cursor.execute(query, (self.email, self.password))
             query_result = cursor.fetchone()
 
@@ -37,9 +53,9 @@ class User:
                 cursor = conn.get_cursor()
                 add_user = "INSERT INTO users (name, email, password) VALUES (%s, %s, sha1(%s))"
                 cursor.execute(add_user, (self.name, self.email, self.password))
-                insert_reult = cursor.lastrowid
+                insert_result = cursor.rowcount
 
-                if insert_reult:
+                if insert_result:
                     conn.commit()
                     return True
                 else:
